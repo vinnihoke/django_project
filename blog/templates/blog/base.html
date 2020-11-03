@@ -1,0 +1,52 @@
+<!-- This brings in the static css from the directory -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Spectre CSS Library -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blog/index.css' %}"
+    />
+
+    {% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Django Blog</title>
+    {% endif %}
+  </head>
+  <body>
+    <header class="navbar">
+      <section class="navbar-section">
+        <a href="{% url 'blog-home' %}" class="btn btn-link">Home</a>
+        <a href="{% url 'blog-about' %}" class="btn btn-link">About</a>
+      </section>
+      <section class="navbar-section">
+        <a href="{% url 'blog-home' %}" class="btn btn-link">Blog</a>
+      </section>
+    </header>
+    <main id="App" class="container">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
