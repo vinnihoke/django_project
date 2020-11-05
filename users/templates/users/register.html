@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %} {% load crispy_forms_tags %} {% block content %}
+<div class="content-section">
+  <form method="POST">
+    <!-- This is required for the form to work -->
+    {% csrf_token %}
+    <fieldset>
+      <legend>Join Today!</legend>
+      <!-- Then access the form we passed in -->
+      <!-- The as_p makes it as paragraph tags -->
+      {{ form | crispy }}
+    </fieldset>
+    <div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+  </form>
+  <div class="">
+    <small>
+      Already have an account?
+      <a href="#">Sign In</a>
+    </small>
+  </div>
+</div>
+{% endblock content %} {% %} {% %} {% %}
